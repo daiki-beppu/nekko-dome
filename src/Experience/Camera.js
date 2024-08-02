@@ -13,7 +13,7 @@ export class Camera {
       aspect: this.sizes.width / this.sizes.height,
       near: 0.1,
       far: 100,
-      position: { x: 4, y: 6, z: 10 },
+      position: { x: 6 , y: 4, z: 10 },
     };
 
     this.setInstance();
