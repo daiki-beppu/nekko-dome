@@ -1,6 +1,6 @@
-import { Base } from './Base';
-import { Dome } from './Dome';
-import { Floor } from './Floor';
+import { Base } from './Base/Base';
+import { Dome } from './Dome/Dome';
+import { Floor } from './Floor/Floor';
 
 export class World {
   constructor(experience) {

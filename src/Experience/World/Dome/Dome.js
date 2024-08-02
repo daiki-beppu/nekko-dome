@@ -1,25 +1,18 @@
 import * as THREE from 'three';
-
-const domeConfig = {
-  geometry: { radius: 2.5, widthSegment: 32, heightSegment: 16 },
-  material: { color: '#ffffff' },
-  mesh: {
-    position: { x: 0, y: 5, z: 0 },
-    rotation: { x: 0, y: 0, z: 0 },
-  },
-};
+import { createDomeConfig } from './domeConfig';
 
 export class Dome {
   constructor(experience) {
     this.experience = experience;
     this.scene = this.experience;
+    this.config = createDomeConfig();
 
     this.setGeometry();
     this.setmaterial();
     this.setMesh();
   }
   setGeometry() {
-    const { radius, widthSegment, heightSegment } = domeConfig.geometry;
+    const { radius, widthSegment, heightSegment } = this.config.geometry;
     this.geometry = new THREE.SphereGeometry(
       radius,
       widthSegment,
@@ -27,13 +20,13 @@ export class Dome {
     );
   }
   setmaterial() {
-    const { color } = domeConfig.material;
+    const { color } = this.config.material;
     this.material = new THREE.MeshBasicMaterial({
       color: color,
     });
   }
   setMesh() {
-    const { position } = domeConfig.mesh;
+    const { position } = this.config.mesh;
     this.mesh = new THREE.Mesh(this.geometry, this.material);
     this.mesh.position.set(position.x, position.y, position.z);
     this.scene.add(this.mesh);

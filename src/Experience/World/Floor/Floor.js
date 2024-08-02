@@ -1,18 +1,11 @@
 import * as THREE from 'three';
-
-const floorConfig = {
-  geometry: { width: 10, height: 10 },
-  material: { color: '#ffffff' },
-  mesh: {
-    position: { x:0},
-    rotation: { x: -Math.PI / 2 },
-  },
-};
+import { createFloorConfig } from './floorConfig';
 
 export class Floor {
   constructor(experience) {
     this.experience = experience;
     this.scene = this.experience;
+    this.config = createFloorConfig();
 
     this.setGeometry();
     this.setmaterial();
@@ -20,22 +13,22 @@ export class Floor {
   }
 
   setGeometry() {
-    const { width, height } = floorConfig.geometry;
+    const { width, height } = this.config.geometry;
     this.geometry = new THREE.PlaneGeometry(width, height);
   }
 
   setmaterial() {
-    const { color } = floorConfig.material;
+    const { color } = this.config.material;
     this.material = new THREE.MeshBasicMaterial({
       color: color,
     });
   }
 
   setMesh() {
-    const { rotation, position } = floorConfig.mesh;
+    const { rotation, position } = this.config.mesh;
     this.mesh = new THREE.Mesh(this.geometry, this.material);
-    this.mesh.position.x = position.x;
-    this.mesh.rotation.x = rotation.x;
+    this.mesh.position.set(position.x, position.y, position.z);
+    this.mesh.rotation.set(rotation.x, rotation.y, rotation.z);
     this.mesh.receiveShadow = true;
     this.scene.add(this.mesh);
   }
