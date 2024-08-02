@@ -1,11 +1,17 @@
 import * as THREE from 'three';
 
 const baseConfig = {
-  geometry: { radiusTop: 1, radiusBottom: 3, height: 1, radialSegments: 4 },
+  geometry: { radiusTop: 2, radiusBottom: 5, height: 2, radialSegments: 4 },
   material: { color: 'brown' },
   mesh: {
-    position: { x: 0, y: 0.5, z: 0 },
-    rotation: { x: -Math.PI / 2 },
+    position: {
+      x: 0,
+      get y() {
+        return baseConfig.geometry.height / 2;
+      },
+      z: 0,
+    },
+    rotation: { x: 0, y: 0, z: 0 },
   },
 };
 

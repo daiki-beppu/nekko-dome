@@ -4,7 +4,7 @@ const floorConfig = {
   geometry: { width: 10, height: 10 },
   material: { color: '#ffffff' },
   mesh: {
-    position: { x: 0.3 },
+    position: { x:0},
     rotation: { x: -Math.PI / 2 },
   },
 };
