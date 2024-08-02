@@ -20,9 +20,25 @@ export class Dome {
     );
   }
   setmaterial() {
-    const { color } = this.config.material;
-    this.material = new THREE.MeshBasicMaterial({
-      color: color,
+    const {
+      opacity,
+      transmission,
+      clearcoat,
+      clearcoatRoughness,
+      ior,
+      reflectivity,
+      side,
+    } = this.config.material;
+
+    this.material = new THREE.MeshPhysicalMaterial({
+      transparent: true,
+      opacity: opacity,
+      transmission: transmission,
+      clearcoat: clearcoat,
+      clearcoatRoughness: clearcoatRoughness,
+      ior: ior,
+      reflectivity: reflectivity,
+      side: side,
     });
   }
   setMesh() {

@@ -24,7 +24,7 @@ export class Base {
   }
   setMaterial() {
     const { color } = this.config.material;
-    this.material = new THREE.MeshBasicMaterial({
+    this.material = new THREE.MeshStandardMaterial({
       color: color,
     });
   }

@@ -1,6 +1,6 @@
 export const createBaseConfig = () => ({
   geometry: { radiusTop: 4, radiusBottom: 5.5, height: 2, radialSegments: 32 },
-  material: { color: 'brown' },
+  material: { color: '#222222' },
   mesh: {
     position: {
       x: 0,
