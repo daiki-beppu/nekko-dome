@@ -1,6 +1,7 @@
 import { Base } from './Base/Base';
 import { Dome } from './Dome/Dome';
 import { Floor } from './Floor/Floor';
+import { AmbientLight } from './Light/AmbientLight/AmbientLight';
 
 export class World {
   constructor(experience) {
@@ -16,6 +17,7 @@ export class World {
     this.floor = new Floor(this.scene);
     this.base = new Base(this.scene);
     this.dome = new Dome(this.scene);
+    this.ambientLight = new AmbientLight(this.scene);
   }
   update() {}
 }
