@@ -2,7 +2,7 @@ import * as THREE from 'three';
 
 const floorConfig = {
   geometry: { width: 10, height: 10 },
-  material: { color: 'ffffff' },
+  material: { color: '#ffffff' },
   mesh: {
     position: { x: 0.3 },
     rotation: { x: -Math.PI / 2 },
