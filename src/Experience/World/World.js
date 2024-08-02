@@ -1,3 +1,4 @@
+import { Base } from './Base';
 import { Floor } from './Floor';
 
 export class World {
@@ -12,6 +13,7 @@ export class World {
     }
 
     this.floor = new Floor(this.scene);
+    this.base = new Base(this.scene);
   }
   update() {}
 }
