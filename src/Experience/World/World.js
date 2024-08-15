@@ -19,7 +19,11 @@ export class World {
     this.base = new Base(this.scene);
     this.dome = new Dome(this.scene);
     this.ambientLight = new AmbientLight(this.scene);
-    this.snow = new Snow(this.scene);
+    this.snow = new Snow(this.experience);
   }
-  update() {}
+  update() {
+    if (this.snow) {
+      this.snow.update();
+    }
+  }
 }

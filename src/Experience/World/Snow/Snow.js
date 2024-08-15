@@ -5,7 +5,8 @@ import { createSnowConfig } from './snowConfig';
 export class Snow {
   constructor(experience) {
     this.experience = experience;
-    this.scene = this.experience;
+    this.scene = this.experience.scene;
+    this.resources = this.experience.resources;
     this.domeConfig = createDomeConfig();
     this.snowConfig = createSnowConfig();
 
@@ -38,8 +39,10 @@ export class Snow {
 
   setMaterial() {
     const { color, opacity } = this.snowConfig.material;
+    const snowTexture = this.resources.items.snowTexture
 
     this.material = new THREE.PointsMaterial({
+      map: snowTexture,
       size: 0.5,
       color: color,
       sizeAttenuation: true,
@@ -55,5 +58,9 @@ export class Snow {
 
     this.mesh.position.copy(this.domeConfig.mesh.position);
     this.scene.add(this.mesh);
+  }
+
+  update() {
+    
   }
 }
