@@ -8,12 +8,12 @@ export class Resources extends EventEmitter {
 
     this.assets = assets;
 
-    this.item = {};
+    this.items = {};
     this.toLoad = this.assets.length;
-    this.toLoad = 0;
+    this.loaded = 0;
 
     this.setLoaders();
-    this.staertLoading();
+    this.startLoading();
   }
 
   setLoaders() {
@@ -24,7 +24,7 @@ export class Resources extends EventEmitter {
       fontLoader: new FontLoader(),
     };
   }
-  staertLoading() {
+  startLoading() {
     for (const source of this.assets) {
       if (source.type === 'gltfModel') {
         this.loaders.gltfLoader.load(source.path, (file) => {
@@ -39,7 +39,7 @@ export class Resources extends EventEmitter {
           this.sourceLoaded(source, file);
         });
       } else if (source.type === 'font') {
-        this.loaders.cubeTextureLoader.load(source.path, (file) => {
+        this.loaders.fontLoader.load(source.path, (file) => {
           this.sourceLoaded(source, file);
         });
       }
