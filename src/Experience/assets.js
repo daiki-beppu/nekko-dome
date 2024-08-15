@@ -1,22 +1,7 @@
 export const assets = [
   {
-    name: '',
-    type: 'gltfmodel',
-    path: [],
-  },
-  {
-    name: '',
+    name: 'snowTexture',
     type: 'texture',
-    path: [],
-  },
-  {
-    name: '',
-    type: 'cubeTexture',
-    path: [],
-  },
-  {
-    name: '',
-    type: 'font',
-    path: [],
+    path: './texture/particle/CatFootprints.jpeg',
   },
 ];
