@@ -19,7 +19,10 @@ export class Experience {
     this.resources = new Resources(assets);
     this.camera = new Camera(this);
     this.renderer = new Renderer(this);
-    this.world = new World(this);
+
+    this.resources.on('ready', () => {
+      this.world = new World(this);
+    });
 
     this.sizes.on('resize', () => {
       this.resize();
@@ -37,7 +40,9 @@ export class Experience {
 
   update() {
     this.camera.update();
-    this.world.update();
+    if (this.world) {
+      this.world.update();
+    }
     this.renderer.update();
   }
 }
