@@ -20,26 +20,7 @@ export class Dome {
     );
   }
   setmaterial() {
-    const {
-      opacity,
-      transmission,
-      clearcoat,
-      clearcoatRoughness,
-      ior,
-      reflectivity,
-      side,
-    } = this.config.material;
-
-    this.material = new THREE.MeshPhysicalMaterial({
-      transparent: true,
-      opacity: opacity,
-      transmission: transmission,
-      clearcoat: clearcoat,
-      clearcoatRoughness: clearcoatRoughness,
-      ior: ior,
-      reflectivity: reflectivity,
-      side: side,
-    });
+    this.material = this.config.material;
   }
   setMesh() {
     const { position } = this.config.mesh;
