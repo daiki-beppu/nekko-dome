@@ -8,11 +8,13 @@ export class EnvMap {
     this.environmentMap = {};
     this.environmentMap.intensity = 0.4;
     this.environmentMap.texture = this.resources.items.envMap;
+    this.background = this.environmentMap.texture
 
     this.setup();
   }
   setup() {
     this.scene.environment = this.environmentMap.texture;
+    this.scene.background = this.environmentMap.texture;
     this.updateMaterialsEnvMap();
   }
   updateMaterialsEnvMap() {

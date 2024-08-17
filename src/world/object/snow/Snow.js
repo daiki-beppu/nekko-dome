@@ -16,13 +16,14 @@ export class Snow {
   }
   setGeometry() {
     this.geometry = new THREE.BufferGeometry();
-    const { count } = this.snowConfig.particles;
-    const vertices = 3;
+    const { count, vertices, offset } = this.snowConfig.particles;
+    const domeRadius = this.domeConfig.geometry.radius;
     const position = new Float32Array(count * vertices);
+    const offsetFromDome = domeRadius * offset;
 
     for (let i = 0; i < count; i++) {
       const positionIndex = i * 3;
-      const radius = this.domeConfig.geometry.radius * Math.random();
+      const radius = (domeRadius - offsetFromDome) * Math.random();
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(2 * Math.random() - 1);
 
@@ -38,18 +39,7 @@ export class Snow {
   }
 
   setMaterial() {
-    const { color, size, opacity } = this.snowConfig.material;
-
-    this.material = new THREE.PointsMaterial({
-      color: color,
-      size: size,
-      sizeAttenuation: true,
-      transparent: true,
-      opacity: opacity,
-      vertexColors: false,
-      depthTest: false,
-      depthWrite: false,
-    });
+    this.material = this.snowConfig.material;
   }
   setMesh() {
     this.mesh = new THREE.Points(this.geometry, this.material);

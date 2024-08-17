@@ -48,27 +48,23 @@ export class Camera {
   }
 
   setGUI() {
-    const debugConfig = {
-      positionAxes: ['x', 'y', 'z'],
-      value: { min: -30, max: 30, step: 0.001 },
-    };
+    if (this.debug.active) {
+      const debugConfig = {
+        positionAxes: ['x', 'y', 'z'],
+        value: { min: -30, max: 30, step: 0.001 },
+      };
 
-    const { min, max, step } = debugConfig.value;
+      const { min, max, step } = debugConfig.value;
 
-    debugConfig.positionAxes.map((axis) => {
-      this.floder
-        .add(this.instance.position, axis)
-        .min(min)
-        .max(max)
-        .step(step)
-        .name(`position${axis}`)
-        .listen();
-    });
-
-    console.log('Camera position', {
-      x: this.instance.position.x.toFixed(2),
-      y: this.instance.position.y.toFixed(2),
-      z: this.instance.position.z.toFixed(2),
-    });
+      debugConfig.positionAxes.map((axis) => {
+        this.floder
+          .add(this.instance.position, axis)
+          .min(min)
+          .max(max)
+          .step(step)
+          .name(`position${axis}`)
+          .listen();
+      });
+    }
   }
 }

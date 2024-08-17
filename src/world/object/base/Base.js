@@ -23,10 +23,7 @@ export class Base {
     );
   }
   setMaterial() {
-    const { color } = this.config.material;
-    this.material = new THREE.MeshStandardMaterial({
-      color: color,
-    });
+    this.material = this.config.material;
   }
   setMesh() {
     const { position } = this.config.mesh;

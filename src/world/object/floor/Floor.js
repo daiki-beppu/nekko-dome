@@ -18,10 +18,7 @@ export class Floor {
   }
 
   setmaterial() {
-    const { color } = this.config.material;
-    this.material = new THREE.MeshBasicMaterial({
-      color: color,
-    });
+    this.material = this.config.material;
   }
 
   setMesh() {

@@ -1,8 +1,8 @@
-import { Base } from './base/Base';
-import { Dome } from './dome/Dome';
 import { Environment } from './environment/Enviroment';
-import { Floor } from './floor/Floor';
-import { Snow } from './snow/Snow';
+import { Base } from './object/base/Base';
+import { Dome } from './object/dome/Dome';
+import { Floor } from './object/floor/Floor';
+import { Snow } from './object/snow/Snow';
 
 export class World {
   constructor(appCore) {
