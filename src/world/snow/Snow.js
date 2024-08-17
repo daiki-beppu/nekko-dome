@@ -1,12 +1,12 @@
 import * as THREE from 'three';
-import { createDomeConfig } from '../Dome/domeConfig';
+import { createDomeConfig } from '../dome/domeConfig';
 import { createSnowConfig } from './snowConfig';
 
 export class Snow {
-  constructor(experience) {
-    this.experience = experience;
-    this.scene = this.experience.scene;
-    this.resources = this.experience.resources;
+  constructor(appCore) {
+    this.appCore = appCore;
+    this.scene = this.appCore.scene;
+    this.resources = this.appCore.resources;
     this.domeConfig = createDomeConfig();
     this.snowConfig = createSnowConfig();
 
@@ -16,7 +16,7 @@ export class Snow {
   }
   setGeometry() {
     this.geometry = new THREE.BufferGeometry();
-    const { count, minSize, maxSize } = this.snowConfig.particles;
+    const { count } = this.snowConfig.particles;
     const vertices = 3;
     const position = new Float32Array(count * vertices);
 
@@ -38,19 +38,17 @@ export class Snow {
   }
 
   setMaterial() {
-    const { color, opacity } = this.snowConfig.material;
-    const snowTexture = this.resources.items.snowTexture
+    const { color, size, opacity } = this.snowConfig.material;
 
     this.material = new THREE.PointsMaterial({
-      map: snowTexture,
-      size: 0.5,
       color: color,
+      size: size,
       sizeAttenuation: true,
+      transparent: true,
+      opacity: opacity,
       vertexColors: false,
       depthTest: false,
       depthWrite: false,
-      transparent: true,
-      opacity: opacity,
     });
   }
   setMesh() {
@@ -60,7 +58,5 @@ export class Snow {
     this.scene.add(this.mesh);
   }
 
-  update() {
-    
-  }
+  update() {}
 }

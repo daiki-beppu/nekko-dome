@@ -2,9 +2,9 @@ import * as THREE from 'three';
 import { createBaseConfig } from './baseConfig';
 
 export class Base {
-  constructor(experience) {
-    this.experience = experience;
-    this.scene = this.experience;
+  constructor(appCore) {
+    this.appCore = appCore;
+    this.scene = this.appCore.scene;
 
     this.config = createBaseConfig();
 

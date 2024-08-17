@@ -1,12 +1,12 @@
 import * as THREE from 'three';
 
 export class Renderer {
-  constructor(experience) {
-    this.experience = experience;
-    this.canvas = this.experience.canvas;
-    this.sizes = this.experience.sizes;
-    this.scene = this.experience.scene;
-    this.camera = this.experience.camera;
+  constructor(appCore) {
+    this.appCore = appCore;
+    this.canvas = this.appCore.canvas;
+    this.sizes = this.appCore.sizes;
+    this.scene = this.appCore.scene;
+    this.camera = this.appCore.camera;
 
     this.setInstance();
   }

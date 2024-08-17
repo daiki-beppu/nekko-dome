@@ -1,14 +1,14 @@
 import * as THREE from 'three';
-import { Camera } from './Camera';
-import { Renderer } from './Renderer';
-import { Debug } from './Utils/Debug';
-import { Resources } from './Utils/Resources';
-import { Sizes } from './Utils/Sizes';
-import { Time } from './Utils/Time';
-import { World } from './World/World';
-import { assets } from './assets';
+import { Camera } from '../rendering/Camera';
+import { Renderer } from '../rendering/Renderer';
+import { Resources } from '../resources/Resources';
+import { assets } from '../resources/assets';
+import { Debug } from '../utils/Debug';
+import { Sizes } from '../utils/Sizes';
+import { Time } from '../utils/Time';
+import { World } from '../world/World';
 
-export class Experience {
+export class AppCore {
   constructor(canvas) {
     this.canvas = canvas;
 
@@ -19,10 +19,7 @@ export class Experience {
     this.resources = new Resources(assets);
     this.camera = new Camera(this);
     this.renderer = new Renderer(this);
-
-    this.resources.on('ready', () => {
-      this.world = new World(this);
-    });
+    this.world = new World(this);
 
     this.sizes.on('resize', () => {
       this.resize();
@@ -40,9 +37,7 @@ export class Experience {
 
   update() {
     this.camera.update();
-    if (this.world) {
-      this.world.update();
-    }
+    this.world.update();
     this.renderer.update();
   }
 }

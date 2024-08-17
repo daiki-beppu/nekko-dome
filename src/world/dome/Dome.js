@@ -2,9 +2,9 @@ import * as THREE from 'three';
 import { createDomeConfig } from './domeConfig';
 
 export class Dome {
-  constructor(experience) {
-    this.experience = experience;
-    this.scene = this.experience;
+  constructor(appCore) {
+    this.appCore = appCore;
+    this.scene = this.appCore.scene;
     this.config = createDomeConfig();
 
     this.setGeometry();

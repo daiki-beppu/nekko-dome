@@ -11,7 +11,7 @@ export const createDomeConfig = () => ({
     clearcoatRoughness: 0,
     ior: 1.5,
     reflectivity: 0.9,
-    side: THREE.DoubleSide, 
+    side: THREE.DoubleSide,
   },
   mesh: {
     position: { x: 0, y: 6, z: 0 },
