@@ -11,7 +11,7 @@ export class Floor {
     this.setGeometry();
     this.setmaterial();
     this.setMesh();
-    this.setDebug();
+    this.setDebugUI();
   }
 
   setGeometry() {
@@ -32,7 +32,7 @@ export class Floor {
     this.scene.add(this.mesh);
   }
 
-  setDebug() {
+  setDebugUI() {
     if (this.debug.active) {
       this.folder = this.debug.ui.addFolder('floor');
 
