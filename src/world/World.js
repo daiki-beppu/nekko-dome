@@ -18,13 +18,6 @@ export class World {
       this.dome = new Dome(this);
       this.snow = new Snow(this);
     });
-
-    if (this.debug.active) {
-      this.debugFolder = this.debug.ui.addFolder('test');
-    }
-
-    if (this.debug.active) {
-    }
   }
   update() {}
 }

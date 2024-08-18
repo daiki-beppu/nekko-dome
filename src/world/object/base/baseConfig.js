@@ -10,11 +10,8 @@ export const createBaseConfig = () => {
     },
     material: new THREE.MeshBasicMaterial({ color: '#222222' }),
     mesh: {
-      position: {
-        x: 0,
-        y: 1,
-        z: 0,
-      },
+      scale: 1,
+      position: { x: 0, y: 1, z: 0 },
       rotation: { x: 0, y: 0, z: 0 },
     },
   };

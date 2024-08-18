@@ -15,6 +15,7 @@ export const createDomeConfig = () => {
       side: THREE.DoubleSide,
     }),
     mesh: {
+      scale: 1,
       position: { x: 0, y: 6, z: 0 },
       rotation: { x: 0, y: 0, z: 0 },
     },

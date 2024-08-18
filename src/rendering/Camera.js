@@ -17,13 +17,9 @@ export class Camera {
       position: { x: 22, y: 18, z: -24 },
     };
 
-    if (this.debug.active) {
-      this.floder = this.debug.ui.addFolder('Camera');
-    }
-
     this.setInstance();
     this.setControls();
-    this.setGUI();
+    this.setDebugUI();
   }
   setInstance() {
     const { fov, aspect, near, far, position } = this.cameraConfig;
@@ -47,23 +43,23 @@ export class Camera {
     this.controls.update();
   }
 
-  setGUI() {
+  setDebugUI() {
     if (this.debug.active) {
+      this.folder = this.debug.ui.addFolder('camera');
       const debugConfig = {
         positionAxes: ['x', 'y', 'z'],
-        value: { min: -30, max: 30, step: 0.001 },
+        value: { min: -30, max: 30, step: 0.01 },
       };
 
       const { min, max, step } = debugConfig.value;
-
       debugConfig.positionAxes.map((axis) => {
-        this.floder
+        this.folder
           .add(this.instance.position, axis)
           .min(min)
           .max(max)
           .step(step)
-          .name(`position${axis}`)
-          .listen();
+          .name(`position${axis.toLocaleUpperCase()}`);
+        // .listen();
       });
     }
   }
